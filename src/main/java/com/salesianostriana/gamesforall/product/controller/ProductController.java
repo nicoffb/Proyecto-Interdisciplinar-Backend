@@ -11,6 +11,13 @@ import com.salesianostriana.gamesforall.product.service.ProductService;
 import com.salesianostriana.gamesforall.search.util.Extractor;
 import com.salesianostriana.gamesforall.search.util.SearchCriteria;
 import com.salesianostriana.gamesforall.user.model.User;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
@@ -48,7 +55,21 @@ public class ProductController {
     }
 
 
-
+//    @Operation(summary = "Obtiene un producto a partir de un id dado")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200",
+//                    description = "Se ha encontrado el producto",
+//                    content = {
+//                            @Content(mediaType = "application/json",
+//                                    content = @Content(schema = @Schema(implementation = BasicProductDTO.class))),
+//                    }),
+//            @ApiResponse(responseCode = "404",
+//                    description = "No se ha encontrado el producto",
+//                    content = @Content(schema = @Schema(implementation = com.salesianostriana.gamesforall.exception.ProductNotFoundException.class))),
+//            @ApiResponse(responseCode = "400",
+//                    description = "Los datos introducidos son incorrectos",
+//                    content = @Content),
+//    })
     @GetMapping("/{id}")
     public BasicProductDTO getById(@PathVariable Long id) {
 
